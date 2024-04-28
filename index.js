@@ -89,8 +89,8 @@ async function run() {
 
     app.get("/products", async(req, res)=>{
       const cursor = userCollection.find();
-      const result = await cursor.toArray()
-      res.send(result)
+      const result = await cursor.toArray();
+      res.send(result);
     })
     
     console.log("Pinged your deployment. You successfully connected to MongoDB!");
@@ -100,11 +100,10 @@ async function run() {
 }
 run().catch(console.dir);
 
-
 app.get('/', (req, res) => {
-  res.send('Hello World!')
+  res.send('Hello World!');
 })
 
 app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`)
+  console.log(`Example app listening on port ${port}`);
 })
