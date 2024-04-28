@@ -53,7 +53,6 @@ async function run() {
 
     app.get("/countries/:email", async (req, res) => {
       console.log(req.params.email)
-      // const query = { country_name: new ObjectId(country_name) };
       const result = await countryCollection.find({email: req.params.email}).toArray();
       res.send(result);
     });
