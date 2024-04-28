@@ -10,8 +10,6 @@ app.use(cors());
 app.use(express.json());
 
 
-
-
 const { MongoClient, ServerApiVersion, ObjectId } = require('mongodb');
 const uri = "mongodb+srv://jewelmia2330:phSpkcERXjg924wU@cluster0.jc0qojg.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
 
@@ -57,7 +55,6 @@ async function run() {
       res.send(result);
     });
 
-
     app.delete("/countries/:id", async (req, res) => {
       const id = req.params.id;
       console.log(id)
@@ -98,7 +95,6 @@ async function run() {
     
     console.log("Pinged your deployment. You successfully connected to MongoDB!");
   } finally {
-    // Ensures  the client will close when you finish/error
     // await client.close();
   }
 }
