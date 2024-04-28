@@ -45,8 +45,6 @@ async function run() {
     })
 
 
-   
-
     app.get("/countries", async(req, res)=>{
       const cursor = countryCollection.find();
       const result = await cursor.toArray();
@@ -59,6 +57,8 @@ async function run() {
       const result = await countryCollection.find({email: req.params.email}).toArray();
       res.send(result);
     });
+
+    
 
     app.delete("/countries/:id", async (req, res) => {
       const id = req.params.id;
@@ -99,11 +99,6 @@ async function run() {
       const result = await cursor.toArray()
       res.send(result)
     })
-
-
-
-    
-    
     
     console.log("Pinged your deployment. You successfully connected to MongoDB!");
   } finally {
@@ -112,10 +107,6 @@ async function run() {
   }
 }
 run().catch(console.dir);
-
-
-
-
 
 
 app.get('/', (req, res) => {
