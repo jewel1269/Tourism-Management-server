@@ -67,23 +67,26 @@ async function run() {
       const filter= { _id: new ObjectId(id)}
       const options = {upsert: true};
       const updateData = req.body;
+      console.log(updateData)
       const updateCountries ={
         $set:{
           name:updateData.name,
           userEmail:updateData.userEmail,
           photoURL:updateData.photoURL,
           spot_name:updateData.spot_name,
-          country_name:res.country_name,
+          country_name:updateData.country_name,
           price:updateData.price,
           season:updateData.season,
           travelTime:updateData.travelTime,
           visitor:updateData.visitor,
           description:updateData.description,
         }
+        
       }
       const result = await countryCollection.updateOne(filter, updateCountries, options);
       console.log(result)
       res.send(result)
+      
     })
 
 
